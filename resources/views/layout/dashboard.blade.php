@@ -24,7 +24,13 @@
 <body>
     @include('layout.sidebar')
     @include('layout.topbar')
-    @yield('content')
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+                @yield('content')
+            </div>
+        </div>
+    </div>
     <footer class="footer border-top">
         <div class="container-fluid">
             <div class="row">
@@ -48,8 +54,8 @@
     <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
-     <!-- Layout config Js -->
-     <script src="{{ asset('assets/js/layout.js') }}"></script>
+    <!-- Layout config Js -->
+    <script src="{{ asset('assets/js/layout.js') }}"></script>
 </body>
 
 </html>
