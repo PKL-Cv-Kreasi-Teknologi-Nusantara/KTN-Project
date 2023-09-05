@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <div class="text-center mt-sm-5 mb-4 text-white-50">
                         <div>
-                            <a href="index.html" class="d-inline-block auth-logo">
+                            <a href="#" class="d-inline-block auth-logo">
                                 <img src="assets/images/logo-light.png" alt="" height="20">
                             </a>
                         </div>
@@ -29,7 +29,7 @@
                                 <p class="text-muted">Sign in to continue to Velzon.</p>
                             </div>
                             <div class="p-2 mt-4">
-                                <form action="index.html">
+                                <form action="/dashboard">
 
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
