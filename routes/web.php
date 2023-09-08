@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+// routes/web.php
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +18,10 @@ Route::get('/', function () {
 });
 Route::get('/dashboard', function () {
     return view('admin.index');
+});
+Route::get('/team', function () {
+    return view('admin.team.index');
+});
+Route::get('/project', function () {
+    return view('admin.project.index');
 });

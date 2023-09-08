@@ -32,99 +32,6 @@
                     </span>
                 </button>
 
-                <!-- App Search-->
-                <form class="app-search d-none d-md-block">
-                    <div class="position-relative">
-                        <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
-                            id="search-options" value="">
-                        <span class="mdi mdi-magnify search-widget-icon"></span>
-                        <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
-                            id="search-close-options"></span>
-                    </div>
-                    <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
-                        <div data-simplebar style="max-height: 320px;">
-                            <!-- item-->
-                            <div class="dropdown-header">
-                                <h6 class="text-overflow text-muted mb-0 text-uppercase">Recent Searches</h6>
-                            </div>
-
-                            <div class="dropdown-item bg-transparent text-wrap">
-                                <a href="index.html" class="btn btn-soft-primary btn-sm btn-rounded">how to setup <i
-                                        class="mdi mdi-magnify ms-1"></i></a>
-                                <a href="index.html" class="btn btn-soft-primary btn-sm btn-rounded">buttons <i
-                                        class="mdi mdi-magnify ms-1"></i></a>
-                            </div>
-                            <!-- item-->
-                            <div class="dropdown-header mt-2">
-                                <h6 class="text-overflow text-muted mb-1 text-uppercase">Pages</h6>
-                            </div>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="ri-bubble-chart-line align-middle fs-18 text-muted me-2"></i>
-                                <span>Analytics Dashboard</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="ri-lifebuoy-line align-middle fs-18 text-muted me-2"></i>
-                                <span>Help Center</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="ri-user-settings-line align-middle fs-18 text-muted me-2"></i>
-                                <span>My account settings</span>
-                            </a>
-
-                            <!-- item-->
-                            <div class="dropdown-header mt-2">
-                                <h6 class="text-overflow text-muted mb-2 text-uppercase">Members</h6>
-                            </div>
-
-                            <div class="notification-list">
-                                <!-- item -->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                    <div class="d-flex">
-                                        <img src="assets/images/users/avatar-2.jpg"
-                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                        <div class="flex-1">
-                                            <h6 class="m-0">Angela Bernier</h6>
-                                            <span class="fs-11 mb-0 text-muted">Manager</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- item -->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                    <div class="d-flex">
-                                        <img src="assets/images/users/avatar-3.jpg"
-                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                        <div class="flex-1">
-                                            <h6 class="m-0">David Grasso</h6>
-                                            <span class="fs-11 mb-0 text-muted">Web Designer</span>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                    <div class="d-flex">
-                                        <img src="assets/images/users/avatar-5.jpg"
-                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                        <div class="flex-1">
-                                            <h6 class="m-0">Mike Bunch</h6>
-                                            <span class="fs-11 mb-0 text-muted">React Developer</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="text-center pt-3 pb-1">
-                            <a href="pages-search-results.html" class="btn btn-primary btn-sm">View All Results <i
-                                    class="ri-arrow-right-line ms-1"></i></a>
-                        </div>
-                    </div>
-                </form>
             </div>
 
             <div class="d-flex align-items-center">
@@ -149,14 +56,6 @@
                         </form>
                     </div>
                 </div>
-
-                <div class="ms-1 header-item d-none d-sm-flex">
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -233,64 +132,3 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-<style>
-    /* The switch - the box around the slider */
-    .switch {
-        display: block;
-        --width-of-switch: 3.5em;
-        --height-of-switch: 2em;
-        /* size of sliding icon -- sun and moon */
-        --size-of-icon: 1.4em;
-        /* it is like a inline-padding of switch */
-        --slider-offset: 0.3em;
-        position: relative;
-        width: var(--width-of-switch);
-        height: var(--height-of-switch);
-    }
-
-    /* Hide default HTML checkbox */
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    /* The slider */
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #f4f4f5;
-        transition: .4s;
-        border-radius: 30px;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: var(--size-of-icon, 1.4em);
-        width: var(--size-of-icon, 1.4em);
-        border-radius: 20px;
-        left: var(--slider-offset, 0.3em);
-        top: 50%;
-        transform: translateY(-50%);
-        background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
-        ;
-        transition: .4s;
-    }
-
-    input:checked+.slider {
-        background-color: #303136;
-    }
-
-    input:checked+.slider:before {
-        left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
-        background: #303136;
-        /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
-        box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
-    }
-</style>
