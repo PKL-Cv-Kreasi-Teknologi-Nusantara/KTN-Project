@@ -6,6 +6,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card card-animate">
+                            <div class="position-absolute start-0" style="z-index: 0;">
+                                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120">
+                                    <style>
+                                        .s0 {
+                                            opacity: .05;
+                                            fill: var(--vz-success)
+                                        }
+                                    </style>
+                                    <path id="Shape 8" class="s0" d="m189.5-25.8c0 0 20.1 46.2-26.7 71.4 0 0-60 15.4-62.3 65.3-2.2 49.8-50.6 59.3-57.8 61.5-7.2 2.3-60.8 0-60.8 0l-11.9-199.4z" />
+                                </svg>
+                            </div>
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div>
