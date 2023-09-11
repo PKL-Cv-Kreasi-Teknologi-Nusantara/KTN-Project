@@ -123,6 +123,13 @@
                 </div> <!-- end row-->
             </div>
         </div> <!-- end col-->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner-border text-primary avatar-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
 
         <div class="col-xxl-7">
             <div class="row h-100">
@@ -212,4 +219,26 @@
             </div> <!-- end row-->
         </div><!-- end col -->
     </div> <!-- end row-->
+    <script>
+        document.body.style.overflow = "hidden";
+    </script>
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets/js/plugins.js"></script>
+
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Vector map-->
+    <script src="assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="assets/libs/jsvectormap/maps/world-merc.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="assets/js/pages/dashboard-analytics.init.js"></script>
+
+    <!-- App js -->
 @endsection
