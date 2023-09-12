@@ -38,9 +38,11 @@
         <div class="page-content">
             <div class="container-fluid">
                 @yield('content')
+                @include('layout.costum')
             </div>
         </div>
     </div>
+
     <footer class="footer border-top">
         <div class="container-fluid">
             <div class="row">
