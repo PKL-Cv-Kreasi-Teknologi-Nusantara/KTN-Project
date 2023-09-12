@@ -1,4 +1,4 @@
-@extends('layout.dashboard_admin')
+@extends('layout.dashboard_pegawai')
 @section('content')
     <!-- start page title -->
     <div class="row">

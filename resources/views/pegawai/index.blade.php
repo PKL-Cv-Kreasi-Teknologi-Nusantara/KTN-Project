@@ -1,4 +1,4 @@
-@extends('layout.dashboard_admin')
+@extends('layout.dashboard_pegawai')
 @section('content')
     <div class="row">
         <div class="col-xxl-5">
@@ -220,7 +220,7 @@
         </div><!-- end col -->
     </div> <!-- end row-->
     <!-- apexcharts -->
-    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
 
     <!-- Vector map-->
     <script src="assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
