@@ -38,10 +38,10 @@
         <div class="page-content">
             <div class="container-fluid">
                 @yield('content')
-                @include('layout.costum')
             </div>
         </div>
     </div>
+    @include('layout.costum')
 
     <footer class="footer border-top">
         <div class="container-fluid">

@@ -219,9 +219,6 @@
             </div> <!-- end row-->
         </div><!-- end col -->
     </div> <!-- end row-->
-    <script>
-        document.body.style.overflow = "hidden";
-    </script>
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
