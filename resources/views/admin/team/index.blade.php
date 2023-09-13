@@ -25,7 +25,30 @@
             </div><!-- end card header -->
 
             <div class="card-body">
-                <div id="table-fixed-header"></div>
+                <div id="table-fixed-header">
+                    <table id="myTable" class="display">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>Hikmat</td>
+                                <td>hikmat@gmail.com</td>
+                                <td>Admin</td>
+                                <td>
+                                    kjhkj
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div><!-- end card-body -->
         </div><!-- end card -->
     </div>
@@ -73,11 +96,35 @@
 
 <!-- prismjs plugin -->
 <script src="{{ asset('assets/libs/prismjs/prism.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        var t = $('#myTable').DataTable({
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true,
+            stateSave: true,
+            columnDefs: [{
+                searchable: false,
+                orderable: false,
+                targets: 0,
+            }, ],
+            order: [
+                [1, 'asc']
+            ],
 
-<!-- gridjs js -->
-<script src="{{ asset('assets/libs/gridjs/gridjs.umd.js') }}"></script>
+        });
 
-<!-- gridjs init -->
-<script src="{{ asset('assets/js/pages/gridjs.init.js') }}"></script>
+        t.on('order.dt search.dt', function () {
+            let i = 1;
 
+            t.cells(null, 0, {
+                search: 'applied',
+                order: 'applied'
+            }).every(function (cell) {
+                this.data(i++);
+            });
+        }).draw();
+    });
+</script>
 @endsection

@@ -9,30 +9,35 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
-        <!-- jsvectormap css -->
-        <link href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- jsvectormap css -->
+    <link href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 
-        <!-- gridjs css -->
-        <link rel="stylesheet" href="{{ asset('assets/libs/gridjs/theme/mermaid.min.css') }}">
+    <!-- gridjs css -->
+    <link rel="stylesheet" href="{{ asset('assets/libs/gridjs/theme/mermaid.min.css') }}">
 
-        <!-- Layout config Js -->
-        <script src="{{ asset('assets/js/layout.js') }}"></script>
-        <!-- Bootstrap Css -->
-        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- App Css -->
-        <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- custom Css -->
-        <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Layout config Js -->
+    <script src="{{ asset('assets/js/layout.js') }}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- App Css -->
+    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- custom Css -->
+    <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- css datatables --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 
 
 
 </head>
 
 <body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     @include('layout.sidebar_admin')
     @include('layout.topbar')
     <div class="main-content">
@@ -84,7 +89,6 @@
 
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
-
 </body>
 
 </html>

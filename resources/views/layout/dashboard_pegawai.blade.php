@@ -84,6 +84,8 @@
 
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    {{-- datatables --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 
