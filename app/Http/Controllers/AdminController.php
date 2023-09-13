@@ -9,10 +9,17 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     function index(){
-        Auth::user()->role;
-        return view('admin.index');
+        $data_user = [
+            'nama'=> Auth::user()->name,
+            'role'=> Auth::user()->role,
+        ];
+        return view('admin.index', $data_user);
     }
     function pegawai(){
-        return view('pegawai.index');
+        $data_user = [
+            'nama'=> Auth::user()->name,
+            'role'=> Auth::user()->role,
+        ];
+        return view('pegawai.index',$data_user);
     }
 }

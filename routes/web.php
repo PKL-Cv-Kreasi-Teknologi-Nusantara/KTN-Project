@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\c_project;
+use App\Http\Controllers\c_team;
 use App\Http\Controllers\SesiController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -31,12 +33,8 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['userAkses:admin'])->group(function () {
         // admin
         Route::get('/admin',[AdminController::class,'index'])->middleware('userAkses:admin');
-        Route::get('/admin/team', function () {
-            return view('admin.team.index');
-        });
-        Route::get('/admin/project', function () {
-            return view('admin.project.index');
-        });
+        Route::resource('/admin/team', c_team::class)->except(['create','show','edit']);
+        Route::resource('/admin/project', c_project::class)->except(['create','show','edit']);
     });
     Route::middleware(['userAkses:pegawai'])->group(function () {
         // Pegawai
