@@ -189,7 +189,6 @@
                         <!-- end card body -->
                     </div><!-- end card -->
                 </div><!-- end col -->
-
                 <div class="col-xl-6">
                     <div class="card card-height-100">
                         <div class="card-header align-items-center d-flex">
@@ -215,17 +214,14 @@
                         </div><!-- end card body -->
                     </div><!-- end card -->
                 </div> <!-- end col-->
-
             </div> <!-- end row-->
         </div><!-- end col -->
     </div> <!-- end row-->
     <!-- apexcharts -->
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Vector map-->
     <script src="assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
     <script src="assets/libs/jsvectormap/maps/world-merc.js"></script>
-
     <!-- Dashboard init -->
     <script src="assets/js/pages/dashboard-analytics.init.js"></script>
 @endsection

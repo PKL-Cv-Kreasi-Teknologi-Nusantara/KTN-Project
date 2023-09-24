@@ -2,22 +2,18 @@
 <div class="app-menu navbar-menu border-end">
     <!-- LOGO -->
     <div class="navbar-brand-box">
-        <!-- Dark Logo-->
-        <a href="index.html" class="logo logo-dark">
-            <span class="logo-sm">
-                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
-            </span>
-            <span class="logo-lg">
-                <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="17">
-            </span>
-        </a>
-        <!-- Light Logo-->
+        <!-- KTN Logo-->
         <a href="index.html" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="{{ asset('assets/images/KTN.png') }}" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="17">
+                <div style="text-align: center;">
+                    <img src="{{ asset('assets/images/KTN.png') }}" alt="" height="130">
+                    <div class="text-muted" style="font-size: 14px; color: #888; font-weight: bold;">
+                        Kreasi Teknologi Nusantara.
+                    </div>
+                </div>
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -25,10 +21,8 @@
             <i class="ri-record-circle-line"></i>
         </button>
     </div>
-
     <div id="scrollbar">
         <div class="container-fluid">
-
             <div id="two-column-menu">
             </div>
             <ul class="navbar-nav" id="navbar-nav">
@@ -38,7 +32,6 @@
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
-
                 </li> <!-- end Dashboard Menu -->
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="/pegawai/project" role="button" aria-expanded="false"
@@ -51,7 +44,6 @@
         </div>
         <!-- Sidebar -->
     </div>
-
     <div class="sidebar-background"></div>
 </div>
 <!-- Left Sidebar End -->
