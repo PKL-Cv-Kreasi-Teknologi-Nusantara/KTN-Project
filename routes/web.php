@@ -32,13 +32,13 @@ Route::get('/home', function () {
 Route::middleware(['auth'])->group(function(){
     Route::middleware(['userAkses:admin'])->group(function () {
         // admin
-        Route::get('/admin',[AdminController::class,'index'])->middleware('userAkses:admin');
+        Route::get('/admin',[AdminController::class,'index'])->middleware('userAkses:admin')->name('dashboard.admin');
         Route::resource('/admin/team', c_team::class)->except(['create','show','edit']);
         Route::resource('/admin/project', c_project::class)->except(['create','show','edit']);
     });
     Route::middleware(['userAkses:pegawai'])->group(function () {
         // Pegawai
-        Route::get('/pegawai',[AdminController::class,'pegawai'])->middleware('userAkses:pegawai');
+        Route::get('/pegawai',[AdminController::class,'pegawai'])->middleware('userAkses:pegawai')->name('dashboard.pegawai');
         Route::get('/pegawai/project', function () {
             return view('pegawai.project.index');
         });

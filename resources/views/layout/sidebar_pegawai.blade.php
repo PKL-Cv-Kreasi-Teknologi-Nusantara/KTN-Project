@@ -3,7 +3,7 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- KTN Logo-->
-        <a href="index.html" class="logo logo-light">
+        <a href="{{ route('dashboard.pegawai') }}" class="logo logo-light">
             <span class="logo-sm">
                 <img src="{{ asset('assets/images/KTN.png') }}" alt="" height="22">
             </span>
@@ -28,13 +28,13 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="/pegawai" role="button" aria-expanded="false"
+                    <a class="nav-link menu-link {{ Route::is('dashboard.pegawai') ? 'active' : '' }}" href="{{ route('dashboard.pegawai') }}" role="button" aria-expanded="false"
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
                 </li> <!-- end Dashboard Menu -->
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="/pegawai/project" role="button" aria-expanded="false"
+                    <a class="nav-link menu-link {{ request()->is('pegawai/project') ? 'active' : '' }}" href="/pegawai/project" role="button" aria-expanded="false"
                         aria-controls="sidebarApps">
                         <i class="ri-apps-2-line"></i> <span data-key="t-apps">Project</span>
                     </a>
