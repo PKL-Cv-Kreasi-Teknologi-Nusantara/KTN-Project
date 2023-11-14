@@ -52,7 +52,7 @@
                                 class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Profile</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
+                        <a class="dropdown-item" href="{{ route('lock-screen') }}"><i
                                 class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Lock screen</span></a>
                         <a class="dropdown-item" href="/logout"><i

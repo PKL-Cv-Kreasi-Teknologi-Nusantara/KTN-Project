@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\c_project;
 use App\Http\Controllers\c_team;
 use App\Http\Controllers\SesiController;
+use App\Http\Controllers\LockScreenController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // routes/web.php
@@ -30,6 +31,8 @@ Route::get('/home', function () {
     }
 });
 Route::middleware(['auth'])->group(function(){
+    Route::get('/lock-screen', [LockScreenController::class, 'showLockScreenForm'])->name('lock-screen');
+    Route::post('/unlock', [LockScreenController::class, 'unlock'])->name('unlock');
     Route::middleware(['userAkses:admin'])->group(function () {
         // admin
         Route::get('/admin',[AdminController::class,'index'])->middleware('userAkses:admin')->name('dashboard.admin');
@@ -45,3 +48,4 @@ Route::middleware(['auth'])->group(function(){
     });
     Route::get('/logout',[SesiController::class,'logout']);
 });
+
