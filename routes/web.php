@@ -5,6 +5,7 @@ use App\Http\Controllers\c_project;
 use App\Http\Controllers\c_team;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\LockScreenController;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // routes/web.php
@@ -46,6 +47,6 @@ Route::middleware(['auth'])->group(function(){
             return view('pegawai.project.index');
         });
     });
-    Route::get('/logout',[SesiController::class,'logout']);
+    Route::get('/logout',[SesiController::class,'logout'])->name("Logout");
 });
 

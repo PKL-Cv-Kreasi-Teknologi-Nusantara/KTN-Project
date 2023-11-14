@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Http\Request;
+use App\Models\Project;
 
 class AdminController extends Controller
 {
@@ -19,6 +20,7 @@ class AdminController extends Controller
         $data_user = [
             'nama'=> Auth::user()->name,
             'role'=> Auth::user()->role,
+            'project' => Project::count()
         ];
         return view('pegawai.index',$data_user);
     }
