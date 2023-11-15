@@ -42,8 +42,7 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="/admin/team" role="button" aria-expanded="false"
                         aria-controls="sidebarTeam">
-                        <i class="ri-account-circle-line"></i> <span data-key="t-Team">Team</span> <span
-                            class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
+                        <i class="ri-account-circle-line"></i> <span data-key="t-Team">Team</span>
                     </a>
                 </li>
                 <!-- end Dashboard Menu -->
