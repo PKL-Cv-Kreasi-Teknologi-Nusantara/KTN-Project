@@ -25,7 +25,6 @@ class AdminController extends Controller
         $data_user = [
             'nama'=> Auth::user()->name,
             'role'=> Auth::user()->role,
-            'user' => User::where('role','!=','admin')->count(),
             'project' => Project::count(),
             'completed' => Project::where('status','Completed')->count(),
             'inprogress' => Project::where('status','inprogress')->count()
