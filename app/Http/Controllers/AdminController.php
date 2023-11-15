@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -13,6 +14,10 @@ class AdminController extends Controller
         $data_user = [
             'nama'=> Auth::user()->name,
             'role'=> Auth::user()->role,
+            'user' => User::where('role','!=','admin')->count(),
+            'project' => Project::count(),
+            'completed' => Project::where('status','Completed')->count(),
+            'inprogress' => Project::where('status','inprogress')->count()
         ];
         return view('admin.index', $data_user);
     }
@@ -20,7 +25,10 @@ class AdminController extends Controller
         $data_user = [
             'nama'=> Auth::user()->name,
             'role'=> Auth::user()->role,
-            'project' => Project::count()
+            'user' => User::where('role','!=','admin')->count(),
+            'project' => Project::count(),
+            'completed' => Project::where('status','Completed')->count(),
+            'inprogress' => Project::where('status','inprogress')->count()
         ];
         return view('pegawai.index',$data_user);
     }

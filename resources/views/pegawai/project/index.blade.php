@@ -19,7 +19,6 @@
                                 <th>Deadline</th>
                                 <th>Status</th>
                                 <th>Priority</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,9 +29,6 @@
                                 <td>20 JANUARI 2050</td>
                                 <td><span class="badge badge-soft-info">Re-open</span></td>
                                 <td><span class="badge bg-danger">High</span></td>
-                                <td>
-                                    <a href="#" onclick="modalREAD()" class="btn btn-primary btn-sm btn-detail">Detail</a>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
