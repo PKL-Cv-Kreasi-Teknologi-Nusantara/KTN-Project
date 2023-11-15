@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['userAkses:admin'])->group(function () {
         // admin
         Route::get('/admin',[AdminController::class,'index'])->middleware('userAkses:admin')->name('dashboard.admin');
-        Route::resource('/admin/team', c_team::class)->except(['show','edit']);
+        Route::resource('/admin/team', c_team::class)->except(['show']);
         Route::resource('/admin/project', c_project::class)->except(['create','show','edit']);
     });
     Route::middleware(['userAkses:pegawai'])->group(function () {

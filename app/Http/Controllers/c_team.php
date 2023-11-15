@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use app\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class c_team extends Controller
 {
@@ -50,7 +51,7 @@ class c_team extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
         // Simpan data ke database
         User::create($validatedData);
-        return redirect('/admin/team');
+        return redirect('/admin/team')->with('success', 'Pegawai berhasil di tambahkan.');
     }
 
     /**
@@ -72,7 +73,10 @@ class c_team extends Controller
      */
     public function edit($id)
     {
-        //
+        $data =[
+            'user' => User::where('id',$id)->first()
+        ];
+        return view("admin.team.edit",$data);
     }
 
     /**
@@ -83,9 +87,34 @@ class c_team extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+{
+    // Validasi request jika diperlukan
+    $validatedData = $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'nullable', // password bisa diisi atau tidak
+    ]);
+
+    // Dapatkan pengguna berdasarkan parameter $id
+    $user = User::find($id);
+
+    // Buat array untuk menyimpan kolom yang akan diperbarui
+    $updateData = [
+        'name' => $validatedData['name'],
+        'email' => $validatedData['email'],
+    ];
+
+    // Periksa apakah password diisi
+    if ($request->filled('password')) {
+        // Hash password dan tambahkan ke array
+        $updateData['password'] = Hash::make($validatedData['password']);
     }
+
+    // Perbarui informasi pengguna
+    $user->update($updateData);
+
+    return redirect('/admin/team')->with('success', 'Data berhasil diubah.');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -95,6 +124,17 @@ class c_team extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Temukan pengguna berdasarkan ID
+        $user = User::find($id);
+
+        // Periksa apakah pengguna ditemukan
+        if ($user) {
+            // Hapus pengguna
+            $user->delete();
+
+            return response()->json(['message' => 'Data berhasil dihapus.']);
+        } else {
+            return response()->json(['message' => 'Data tidak ditemukan.'], 404);
+        }
     }
 }
