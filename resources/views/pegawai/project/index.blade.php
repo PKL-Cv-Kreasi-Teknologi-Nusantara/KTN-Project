@@ -1,13 +1,12 @@
 @extends('layout.dashboard_pegawai')
+@section('title', 'Project')
 @section('content')
     <div class="row">
-        <div class="col-lg-12 d-flex justify-content-end">
-            <button id="tambahUser" class="btn btn-primary"
-                style="margin-bottom: 10px; padding: 10px 0; width: 300px; font-size: 15px;">
-                <i class="fas fa-plus"></i> Tambah Project
-            </button>
+        <div class="col-lg-12">
+            <h1>Project</h1>
+            <hr>
+            <br>
         </div>
-
         <div class="col-lg-12">
             <div class="card-body">
                 <div id="table-fixed-header">
@@ -32,21 +31,7 @@
                                 <td><span class="badge badge-soft-info">Re-open</span></td>
                                 <td><span class="badge bg-danger">High</span></td>
                                 <td>
-                                    <!-- Tombol Detail -->
-                                    <button class="btn btn-primary btn-sm btn-detail" data-toggle="modal"
-                                        data-target="#detailModal">
-                                        Detail
-                                    </button>
-                                    <!-- Tombol Edit -->
-                                    <button class="btn btn-warning btn-sm btn-edit" data-toggle="modal"
-                                        data-target="#editModal">
-                                        Edit
-                                    </button>
-                                    <!-- Tombol Delete -->
-                                    <button class="btn btn-danger btn-sm btn-delete" data-toggle="modal"
-                                        data-target="#deleteModal">
-                                        Delete
-                                    </button>
+                                    <a href="#" onclick="modalREAD()" class="btn btn-primary btn-sm btn-detail">Detail</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -55,6 +40,24 @@
             </div>
         </div>
     </div>
+{{-- Modal --}}
+<div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+        </div>
+        <div class="modal-body">
+            <p class="mb-0" id="page"></p>
+        </div>
+        <div id="modalFooter" class="modal-footer">
+
+        </div>
+    </div>
+</div>
+</div>
+{{-- endModal --}}
 
     @include('layout.footer')
 
@@ -72,6 +75,16 @@
             </div>
         </div>
     </div>
+    {{-- Script tombol detail --}}
+    <script>
+        function modalREAD(id) {
+        $.get("{{ url('/pegawai/project/') }}/" + id, {}, function (data, status) {
+            $("#exampleModalCenterTitle").html(`Detail Project`)
+            $("#page").html(data);
+            $("#exampleModalCenter").modal('show');
+        })
+    }
+    </script>
 
     <!-- prismjs plugin -->
     <script src="{{ asset('assets/libs/prismjs/prism.js') }}"></script>

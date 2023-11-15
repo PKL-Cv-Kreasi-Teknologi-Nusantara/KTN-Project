@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use app\Models\User;
 
 class c_team extends Controller
 {
@@ -14,11 +15,10 @@ class c_team extends Controller
      */
     public function index()
     {
-        $data_user = [
-            'nama'=> Auth::user()->name,
-            'role'=> Auth::user()->role,
+        $data =[
+            'users' => User::where('id','!=','1')->get()
         ];
-        return view("admin.team.index",$data_user);
+        return view("admin.team.index",$data);
     }
 
     /**
@@ -28,7 +28,7 @@ class c_team extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.team.create");
     }
 
     /**
@@ -39,7 +39,18 @@ class c_team extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi request jika diperlukan
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'role' =>'pegawai'
+        ]);
+        // Hash password sebelum menyimpannya ke database
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        // Simpan data ke database
+        User::create($validatedData);
+        return redirect('/admin/team');
     }
 
     /**

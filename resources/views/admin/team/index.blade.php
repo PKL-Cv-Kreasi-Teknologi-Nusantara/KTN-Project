@@ -1,10 +1,16 @@
 @extends('layout.dashboard_admin')
+@section('title', 'Team')
 @section('content')
     <!-- start page title -->
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-end">
-            <button id="tambahUser" class="btn btn-primary"
-                style="margin-bottom: 10px; padding: 10px 24px; width: 300px; font-size: 15px;">Tambah User</button>
+            <a
+                href="/admin/team/create"
+                id="tambahUser" 
+                class="btn btn-primary"
+                style="margin-bottom: 10px; padding: 10px 24px; width: 300px; font-size: 15px;">
+                Tambah User
+            </a>
         </div>
         <div class="col-lg-12">
             <div class="card-body">
@@ -20,22 +26,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($users as $user)
                             <tr>
                                 <td></td>
-                                <td>Hikmat</td>
-                                <td>hikmat@gmail.com</td>
-                                <td>Admin</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->role}}</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm btn-edit" data-toggle="modal"
-                                        data-target="#editModal">
-                                        Edit
-                                    </button>
-                                    <button class="btn btn-danger btn-sm btn-delete" data-toggle="modal"
-                                        data-target="#deleteModal">
-                                        Delete
-                                    </button>
+                                    <a href="#" class="btn-edit btn-primary btn-sm btn-warning">Detail</a>
+                                    <a href="#" class="btn-delete btn btn-primary btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -115,15 +117,17 @@
             border-radius: 5px;
             padding: 7px 30px;
             font-size: 14px;
+            font-weight: bold;
             transition: background-color 0.2s ease-in-out;
         }
 
         .btn-delete {
             background-color: #dc3545;
-            color: #fff;
+            color: #ffffff;
             border: 1px solid #dc3545;
             border-radius: 5px;
             padding: 7px 30px;
+            font-size: 14px;
             font-weight: bold;
             transition: background-color 0.2s;
         }
