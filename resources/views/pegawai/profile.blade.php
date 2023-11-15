@@ -1,15 +1,19 @@
-@extends('layout.dashboard_admin')
-@section('title', 'Ubah Data Pegawai')
+@extends('layout.dashboard_pegawai')
+@section('title', 'Ubah Profile')
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-10">
         <div class="card mt-2 card-bg-fill">
             <div class="card-body p-4">
                 <div class="text-center mt-2">
-                    <h1 class="text-primary">Ubah Data Pegawai</h1>
+                    <h1 class="text-primary">Profile</h1>
                 </div>
                 <div class="p-2 mt-4">
-                    <form action="/admin/team/{{$user->id}}" method="POST">
+                    @if (Auth::user()->role == 'admin')
+                    <form action="/profile/{{$user->id}}" method="POST" id="adminForm">
+                    @else
+                    <form action="/pegawai/profile/{{$user->id}}" method="POST" id="pegawaiForm">
+                    @endif
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -23,7 +27,7 @@
                                 placeholder="Enter E-mail" name="email" value="{{$user->email}}">
                         </div>
                         <div class="mt-4">
-                            <button class="btn btn-primary w-100" type="submit" id="submitInfo">Simpan</button>
+                            <button class="btn btn-primary w-100" type="submit" id="submitInfo">Ubah Profile</button>
                         </div>
                         <hr style="border: 10px solid rgb(255, 0, 0);">
                         <h3>Ubah Password</h3>
@@ -35,7 +39,7 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <button class="btn btn-primary w-100" type="submit" id="submitPassword" disabled>Simpan</button>
+                            <button class="btn btn-primary w-100" type="submit" id="submitPassword" disabled>Ubah Password</button>
                         </div>
                     </form>
                 </div>

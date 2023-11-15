@@ -1,6 +1,39 @@
 @extends('layout.dashboard_pegawai')
 @section('title', 'Dashboard')
 @section('content')
+{{-- massage setalah perintah --}}
+@if(session('success'))
+    <div class="alert alert-success" id="success-message">
+        {{ session('success') }}
+    </div>
+@endif
+<script>
+    // Hapus elemen pesan sukses setelah animasi selesai
+    window.onload = function() {
+        var successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            successMessage.addEventListener('animationend', function() {
+                successMessage.style.display = 'none';
+            });
+        }
+    }
+</script>
+<style>
+    /* Animasi fade out */
+    @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* Gaya untuk pesan sukses */
+        #success-message {
+            animation: fadeOut 2s ease 5s forwards;
+        }
+</style>
     <div class="row">
         <div class="col-xxl-5">
             <div class="d-flex flex-column h-100">

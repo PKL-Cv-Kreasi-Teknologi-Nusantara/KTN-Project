@@ -32,6 +32,9 @@ Route::get('/home', function () {
     }
 });
 Route::middleware(['auth'])->group(function(){
+    Route::get('/profile', [AdminController::class,'profile'])->name('profile');
+    Route::PUT('/profile/{id}',[AdminController::class,'update'])->name('ubah-profile');
+    Route::PUT('/pegawai/profile/{id}',[AdminController::class,'update_pegawai']);
     Route::get('/lock-screen', [LockScreenController::class, 'showLockScreenForm'])->name('lock-screen');
     Route::post('/unlock', [LockScreenController::class, 'unlock'])->name('unlock');
     Route::middleware(['userAkses:admin'])->group(function () {
@@ -46,9 +49,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/pegawai/project', function () {
             return view('pegawai.project.index');
         });
-        // Route::get('/pegawai/project/{id_project}',function () {
-        //     return view('pegawai.project.index');
-        // });
     });
     Route::get('/logout',[SesiController::class,'logout'])->name("Logout");
 });
