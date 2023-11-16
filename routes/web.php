@@ -46,9 +46,7 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['userAkses:pegawai'])->group(function () {
         // Pegawai
         Route::get('/pegawai',[AdminController::class,'pegawai'])->middleware('userAkses:pegawai')->name('dashboard.pegawai');
-        Route::get('/pegawai/project', function () {
-            return view('pegawai.project.index');
-        });
+        Route::get('/pegawai/project', [c_project::class,'pegawai']);
     });
     Route::get('/logout',[SesiController::class,'logout'])->name("Logout");
 });

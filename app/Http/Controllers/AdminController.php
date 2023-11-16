@@ -18,7 +18,7 @@ class AdminController extends Controller
             'user' => User::where('role','!=','admin')->count(),
             'project' => Project::count(),
             'completed' => Project::where('status','Completed')->count(),
-            'inprogress' => Project::where('status','inprogress')->count()
+            'inprogress' => Project::where('status','In progress')->count()
         ];
         return view('admin.index', $data_user);
     }
@@ -28,7 +28,7 @@ class AdminController extends Controller
             'role'=> Auth::user()->role,
             'project' => Project::count(),
             'completed' => Project::where('status','Completed')->count(),
-            'inprogress' => Project::where('status','inprogress')->count()
+            'inprogress' => Project::where('status','In progress')->count()
         ];
         return view('pegawai.index',$data_user);
     }

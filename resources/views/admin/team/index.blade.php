@@ -113,7 +113,7 @@
         function modalHapus(id_user) {
         Swal.fire({
             title: 'Apakah Anda yakin?',
-            text: "Untuk menghapus Surat Jalan?",
+            text: "Untuk menghapus Data Pegawai?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -132,7 +132,7 @@
                         console.log(data)
                         Swal.fire(
                             'Success!',
-                            'Berhasil hapus Surat Jalan.',
+                            'Berhasil hapus data.',
                             'success',
                             '3000'
                         )
