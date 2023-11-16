@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Project;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class c_project extends Controller
 {
@@ -13,13 +15,23 @@ class c_project extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $data_user = [
-            'nama'=> Auth::user()->name,
-            'role'=> Auth::user()->role,
-        ];
-        return view("admin.project.index",$data_user);
-    }
+{
+    // Mendapatkan semua data proyek dari model Project
+    $projects = Project::all();
+
+    $data = [
+        'projects' => $projects
+    ];
+
+    $data_user = [
+        'nama'=> Auth::user()->name,
+        'role'=> Auth::user()->role,
+    ];
+
+    // Mengirim data proyek dan data pengguna ke tampilan Blade
+    return view("admin.project.index", compact('projects', 'data_user'));
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +40,7 @@ class c_project extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.project.create");
     }
 
     /**
@@ -38,9 +50,22 @@ class c_project extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    // Validasi data yang diterima dari formulir
+    $validatedData = $request->validate([
+        'nama_projects' => 'required',
+        'client'=>'Required',
+        'status' => 'required',
+        'priority' => 'required',
+        'deadline' => 'required|date',
+        'description' => 'required'
+    ]);
+
+    
+        // Simpan data ke dalam database
+        Project::create($validatedData);
+        return redirect('/admin/project')->with('success', 'project berhasil di tambahkan.');
+}
 
     /**
      * Display the specified resource.
@@ -59,9 +84,12 @@ class c_project extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($project)
     {
-        //
+        $data =[
+            'project' => Project::where('projects_id', $project)->first()
+        ];
+        return view("admin.project.edit",$data);
     }
 
     /**
@@ -71,9 +99,22 @@ class c_project extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $project)
     {
-        //
+        // Validasi data yang diterima dari formulir
+        $validatedData = $request->validate([
+            'nama_projects' => 'required',
+            'client'=>'Required',
+            'status' => 'required',
+            'priority' => 'required',
+            'deadline' => 'required|date',
+            'description' => 'required'
+        ]);
+        // Temukan pengguna berdasarkan ID
+        $project = Project::where('projects_id', $project)->first();
+        $project->update($validatedData);
+        return redirect('/admin/project')->with('success', 'project berhasil di ubah.');
+
     }
 
     /**
@@ -82,8 +123,16 @@ class c_project extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($project)
     {
-        //
+        // Temukan pengguna berdasarkan ID
+        $project = Project::where('projects_id', $project)->first();
+        if ($project) {
+            $project->delete();
+            return response()->json(['message' => 'Data berhasil dihapus.']);
+        } else {
+            return response()->json(['message' => 'Data tidak ditemukan.'], 404);
+        }
+
     }
 }

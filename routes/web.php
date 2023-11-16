@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function(){
         // admin
         Route::get('/admin',[AdminController::class,'index'])->middleware('userAkses:admin')->name('dashboard.admin');
         Route::resource('/admin/team', c_team::class)->except(['show']);
-        Route::resource('/admin/project', c_project::class)->except(['create','show','edit']);
+        Route::resource('/admin/project', c_project::class);
     });
     Route::middleware(['userAkses:pegawai'])->group(function () {
         // Pegawai

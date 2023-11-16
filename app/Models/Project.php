@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use HasFactory;
+    protected $primaryKey = 'projects_id';
+    protected $fillable = [
+        'nama_projects', // tambahkan kolom 'nama_projects' di sini
+        'client',
+        'status',
+        'priority',
+        'deadline',
+        'description'
+        
+        // tambahkan kolom-kolom lain yang dapat diisi secara massal di sini
+    ];
 }

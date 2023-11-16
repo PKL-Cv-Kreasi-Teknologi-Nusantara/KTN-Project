@@ -123,7 +123,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "DELETE",
-                    url: "{{ url('admin/team/' . $user->id) }}", // Pastikan URL sesuai dengan struktur rute Anda
+                    url: "{{ url('admin/team') }}/" + id_user, // Pastikan URL sesuai dengan struktur rute Anda
                     data: {
                             _token: '{{ csrf_token() }}',
                             // id: id_user // Tidak diperlukan karena kita sudah menambahkannya ke URL
