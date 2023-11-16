@@ -75,7 +75,7 @@ class c_project extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.project.detail');
     }
 
     /**
