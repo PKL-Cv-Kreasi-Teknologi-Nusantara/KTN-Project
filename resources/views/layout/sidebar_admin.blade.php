@@ -28,19 +28,19 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="/admin" role="button" aria-expanded="false"
+                    <a class="nav-link menu-link {{ Route::is('dashboard.admin') ? 'active' : '' }}" href="/admin" role="button" aria-expanded="false"
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
                 </li> <!-- end Dashboard Menu -->
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="/admin/project" role="button" aria-expanded="false"
+                    <a class="nav-link menu-link {{ request()->is('admin/project') ? 'active' : '' }}" href="/admin/project" role="button" aria-expanded="false"
                         aria-controls="sidebarApps">
                         <i class="ri-apps-2-line"></i> <span data-key="t-apps">Project</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="/admin/team" role="button" aria-expanded="false"
+                    <a class="nav-link menu-link {{ request()->is('admin/team') ? 'active' : '' }}" href="/admin/team" role="button" aria-expanded="false"
                         aria-controls="sidebarTeam">
                         <i class="ri-account-circle-line"></i> <span data-key="t-Team">Team</span>
                     </a>
