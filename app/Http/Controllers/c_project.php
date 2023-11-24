@@ -139,4 +139,21 @@ class c_project extends Controller
         }
 
     }
+    public function pegawai()
+{
+    // Mendapatkan semua data proyek dari model Project
+    $projects = Project::all();
+
+    $data = [
+        'projects' => $projects
+    ];
+
+    $data_user = [
+        'nama'=> Auth::user()->name,
+        'role'=> Auth::user()->role,
+    ];
+
+    // Mengirim data proyek dan data pengguna ke tampilan Blade
+    return view("pegawai.project.index", compact('projects', 'data_user'));
+}
 }

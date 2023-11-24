@@ -14,22 +14,28 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
+                                <th>Nama Project</th>
                                 <th>Client</th>
                                 <th>Deadline</th>
                                 <th>Status</th>
                                 <th>Priority</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($projects as $index => $project)
                             <tr>
                                 <td></td>
-                                <td>Dede</td>
-                                <td>PT INDONESIA JAYA</td>
-                                <td>20 JANUARI 2050</td>
-                                <td><span class="badge badge-soft-info">Re-open</span></td>
-                                <td><span class="badge bg-danger">High</span></td>
+                                <td>{{ $project->nama_projects }}</td>
+                                <td>{{ $project->client }}</td>
+                                <td>{{ $project->deadline }}</td>
+                                <td>{{ $project->status }}</td>
+                                <td>{{ $project->priority }}</td>
+                                <td>
+                                    <a href="/admin/project/{{$project->projects_id}}" class="btn btn-info">Detail</a>
+                                </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

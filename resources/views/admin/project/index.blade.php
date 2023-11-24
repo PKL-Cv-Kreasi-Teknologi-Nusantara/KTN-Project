@@ -1,4 +1,5 @@
 @extends('layout.dashboard_admin')
+@section('title', 'Project')
 @section('content')
 <div class="row">
     <div class="col-lg-12 d-flex justify-content-end">
