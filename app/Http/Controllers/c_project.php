@@ -73,10 +73,14 @@ class c_project extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($project)
     {
-        return view('admin.project.detail');
+        $data = [
+            'project' => Project::where('projects_id', $project)->first()
+        ];
+        return view("admin.project.show", $data);
     }
+    
 
     /**
      * Show the form for editing the specified resource.

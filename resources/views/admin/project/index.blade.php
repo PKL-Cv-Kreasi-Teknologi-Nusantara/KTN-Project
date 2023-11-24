@@ -24,24 +24,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($projects as $index => $project)
+                        @foreach($projects as $index => $project)
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $project->nama_projects }}</td>
                             <td>{{ $project->client }}</td>
-                            <td>{{ $project->deadline }}</td>
-                            <td>{{ $project->status }}</td>
-                            <td>{{ $project->priority }}</td>
+                            <td>{{ \Carbon\Carbon::parse($project->deadline)->format('d M, Y') }}</td>
+                            <td>
+                                <div
+                                    class="badge {{ $project->status === 'completed' ? 'bg-success' : 'bg-danger' }} fs-12">
+                                    {{ $project->status }}
+                                </div>
+                            </td>
+                            <td>
+                                <div
+                                    class="badge {{ $project->priority === 'high' ? 'bg-danger' : 'bg-success' }} fs-12">
+                                    {{ $project->priority }}
+                                </div>
+                            </td>
                             <td>
                                 <!-- Tombol Detail -->
-                                <button class="btn btn-primary btn-sm btn-detail" data-toggle="modal"
-                                    data-target="#detailModal">
-                                    Detail
-                                </button>
+                                <a href="/admin/project/{{$project->projects_id}}"
+                                    class="btn btn-primary btn-sm btn-detail">Detail</a>
                                 <!-- Tombol Edit -->
-                                <a href="/admin/project/{{$project->projects_id}}/edit" class="btn-edit btn-primary btn-sm btn-warning">Edit</a>
+                                <a href="/admin/project/{{$project->projects_id}}/edit"
+                                    class="btn-edit btn-primary btn-sm btn-warning">Edit</a>
                                 <!-- Tombol Delete -->
-                                <button onclick="modalHapus('{{$project->projects_id}}')" class="btn-delete btn btn-danger">Delete</button>
+                                <button onclick="modalHapus('{{$project->projects_id}}')"
+                                    class="btn-delete btn btn-danger">Delete</button>
                             </td>
                         </tr>
                         @endforeach
@@ -115,10 +125,11 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "DELETE",
-                    url: "{{ url('/admin/project/')}}/" + id_project, // Pastikan URL sesuai dengan struktur rute Anda
+                    url: "{{ url('/admin/project/')}}/" +
+                        id_project, // Pastikan URL sesuai dengan struktur rute Anda
                     data: {
-                            _token: '{{ csrf_token() }}',
-                            // id: id_user // Tidak diperlukan karena kita sudah menambahkannya ke URL
+                        _token: '{{ csrf_token() }}',
+                        // id: id_user // Tidak diperlukan karena kita sudah menambahkannya ke URL
                     },
                     success: function (data) {
                         console.log(data)
@@ -142,6 +153,7 @@
             }
         })
     }
+
 </script>
 <style>
     /* Gaya untuk sel tabel */
