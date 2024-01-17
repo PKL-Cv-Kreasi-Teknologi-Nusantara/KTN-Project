@@ -32,7 +32,7 @@
                                 <td>{{ $project->status }}</td>
                                 <td>{{ $project->priority }}</td>
                                 <td>
-                                    <a href="/admin/project/{{$project->projects_id}}" class="btn btn-info">Detail</a>
+                                    <a href="/pegawai/project/{{$project->projects_id}}" class="btn btn-info">Detail</a>
                                 </td>
                             </tr>
                         @endforeach

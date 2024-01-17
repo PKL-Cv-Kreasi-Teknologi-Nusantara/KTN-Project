@@ -75,10 +75,15 @@ class c_project extends Controller
      */
     public function show($project)
     {
+        
         $data = [
             'project' => Project::where('projects_id', $project)->first()
         ];
-        return view("admin.project.show", $data);
+        if(Auth::user()->role == "admin"){
+            return view("admin.project.show", $data);
+        } else {
+            return view("pegawai.project.show", $data);
+        }
     }
     
 
